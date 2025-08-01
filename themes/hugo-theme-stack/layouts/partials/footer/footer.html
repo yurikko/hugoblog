@@ -1,5 +1,6 @@
 {{- $ThemeVersion := "3.30.0" -}}
 <footer class="site-footer">
+    <script src="/js/hanabi.js"></script>
     <section class="copyright">
         &copy; 
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}

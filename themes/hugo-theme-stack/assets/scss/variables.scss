@@ -1,5 +1,5 @@
-$defaultTagBackgrounds: #9ab690, #d8a2ab, #7eb8d7, #d8c89b, #a8a7d7;
-$defaultTagColors: #fff, #fff, #fff, #fff, #fff;
+$defaultTagBackgrounds: #faf0c8, #F0C7C7, #cfc4f7, #AAD6EF, #B4E0D7;
+$defaultTagColors: #34495e, #34495e, #34495e,#34495e,#34495e;
 
 /*
 *   Global style
@@ -51,7 +51,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Card style
 */
 :root {
-    --card-background: #e5f1f2;
+    --card-background: #d6e6e8;
     --card-background-selected: #eaeaea;
 
     --card-text-color-main: #313f49;
@@ -78,7 +78,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     }
 
     &[data-scheme="dark"] {
-        --card-background: #424242;
+        --card-background: #384145;
         --card-background-selected: rgba(255, 255, 255, 0.16);
         --card-text-color-main: rgba(255, 255, 255, 0.9);
         --card-text-color-secondary: rgba(255, 255, 255, 0.7);

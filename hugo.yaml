@@ -193,6 +193,7 @@ params:
 
   customCSS: ["css/custom.css"]
 
+  enableimgloop: true
 
 ### Custom menu
 ### See https://stack.jimmycai.com/config/menu

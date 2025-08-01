@@ -36,4 +36,9 @@ categories:
 ![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
 ```
 
+## 图片轮播
+
+{{< imgloop "florian-klauer-nptLmg6jqDo-unsplash.jpg,helena-hertz-wWZzXlDpMog-unsplash.jpg" >}}
+
+
 相册语法来自 [Typlog](https://typlog.com/)
