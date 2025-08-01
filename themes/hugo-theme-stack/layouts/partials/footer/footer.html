@@ -17,7 +17,21 @@
         {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
         {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
 
-        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
-        {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }}
+        {{$scratch := newScratch}}
+        <span>已生存 <span id="days">0</span> Days | </span>
+        <script>
+            var s1 = '2025-07-28'; // 设置为建站时间
+            s1 = new Date(s1.replace(/-/g, "/"));
+            s2 = new Date();
+            var days = Math.floor((s2 - s1) / (1000 * 60 * 60 * 24));
+            document.getElementById('days').innerHTML = days;
+        </script>
+        {{ range where .Site.Pages "Kind" "page" }}
+        {{ if eq .Type "post" }} <!-- 仅统计博文页面 -->
+        {{$scratch.Add "total" .WordCount}}
+        {{ end }}
+        {{ end }}
+        报告中共有{{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 1 }}k字
+
     </section>
 </footer>
