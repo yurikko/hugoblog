@@ -118,7 +118,7 @@ params:
         - url
       locale:
         admin: Admin
-        placeholder:
+        placeholder: 点这里发送一条评论！
 
     twikoo:
       envId:

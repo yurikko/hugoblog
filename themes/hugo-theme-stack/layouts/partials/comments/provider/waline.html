@@ -14,6 +14,52 @@
     }
 </style>
 
+<style>
+    :root {
+        --waline-theme-color: #9ec9d4;
+        /*主题色，提交按钮*/
+        --waline-active-color: #7dafb7;
+        /*鼠标移到提交按钮上的颜色*/
+        --waline-badge-color: #345270;
+        /*博主徽章色*/
+        --waline-dark-grey: #345270;
+        /*ID颜色*/
+        --waline-bgcolor: #e7f7f7;
+        --waline-bgcolor-light: #e9f3fb;
+        --waline-border-color: #aabada;
+    }
+
+    /*夜间模式*/
+    :root[data-scheme="dark"] {
+        --waline-theme-color: #9ec9d4;
+        --waline-white: #34495e;
+        /*按键字体颜色*/
+        --waline-active-color: #69a1aa;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #9ec9d4;
+        --waline-color: #d3d3d3;
+        /*ID颜色*/
+        --waline-badge-color: #9ec9d4;
+        /* 布局颜色 */
+        --waline-text-color: #ffffff;
+        --waline-bgcolor: #515151;
+        --waline-bgcolor-light: #515151;
+        /*行内代码块颜色*/
+        --waline-border-color: #d5d5d5;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+
+        /* 特殊颜色 */
+        --waline-bq-color: #9b9c9c;
+        /*quote*/
+
+        /* 其他颜色 */
+        --waline-info-bgcolor: #acc6e0;
+        --waline-info-color: #9b9c9c;
+    }
+</style>
+
+
 {{- with .Site.Params.comments.waline -}}
 {{- $config := dict "el" "#waline" "dark" `html[data-scheme="dark"]` -}}
 {{- $replaceKeys := dict "serverurl" "serverURL" "requiredmeta" "requiredMeta" "wordlimit" "wordLimit" "pagesize" "pageSize" "imageuploader" "imageUploader" "texrenderer" "texRenderer" -}}
