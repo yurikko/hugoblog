@@ -107,6 +107,7 @@ params:
     waline:
       serverURL: https://waline-beryl-ten.vercel.app/
       lang: zh-CN
+      visitor: false
       pageview:
       emoji:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
