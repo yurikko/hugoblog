@@ -109,18 +109,38 @@ params:
       lang: zh-CN
       visitor: false
       search: false
+      reaction: true
+      reaction: [
+        https://i.postimg.cc/4NkfprjQ/pixelheart.png,
+      ]
       emoji:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq
       meta: []
+      metaIcon: false
       requiredMeta:
         - name
         - email
         - url
       locale:
+        reactionTitle: 
         admin: Admin
         placeholder: 点这里发送一条评论！
+        admin: 站长
+        sofa: ...电波接收中...
+        submit: 发送
+        comment: 留言区
+        refresh: 刷新
+        more: 再来一组！
+        uploading: ...电波发送中...
+        login: 登录
+        sticky: 置顶
+        anonymous: 无名星球
+        optional: 可选项
+        oldest: 最早
+        latest: 最新
+        hottest: 最热门
 
     twikoo:
       envId:

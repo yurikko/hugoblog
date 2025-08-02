@@ -112,3 +112,12 @@ html[data-scheme='dark'] body {
         margin: 0 !important;
     }
 }
+
+//隐藏评论信息
+.wl-meta .wl-system,
+.wl-meta .wl-ip,
+.wl-meta .wl-browser,
+.wl-meta .wl-os,
+.wl-meta .wl-reaction-title {
+    display: none !important;
+}
