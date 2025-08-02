@@ -69,7 +69,7 @@ params:
       default: Licensed under CC BY-NC-SA 4.0
 
   comments:
-    enabled: false
+    enabled: true
     provider: waline
 
     disqusjs:
@@ -105,11 +105,13 @@ params:
 
     # Waline client configuration see: https://waline.js.org/en/reference/component.html
     waline:
-      serverURL:
-      lang:
+      serverURL: https://hugoblog-gamma.vercel.app/
+      lang: zh-CN
       pageview:
       emoji:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili
+        - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq
       requiredMeta:
         - name
         - email
