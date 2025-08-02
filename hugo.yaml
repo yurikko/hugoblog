@@ -109,10 +109,8 @@ params:
       lang: zh-CN
       visitor: false
       search: false
-      reaction: true
-      reaction: [
-        https://i.postimg.cc/4NkfprjQ/pixelheart.png,
-      ]
+      reaction: 
+        - https://i.postimg.cc/4NkfprjQ/pixelheart.png
       emoji:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili
@@ -124,7 +122,7 @@ params:
         - email
         - url
       locale:
-        reactionTitle: 
+        reactionTitle: hi
         admin: Admin
         placeholder: 点这里发送一条评论！
         admin: 站长

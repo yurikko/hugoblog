@@ -103,3 +103,6 @@ html[data-scheme='dark'] body {
 .wl-meta .wl-reaction-title {
     display: none !important;
 }
+
+@import "aplayer-light.scss";
+@import "aplayer-dark.scss";
