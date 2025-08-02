@@ -113,7 +113,7 @@ params:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq
-      meta: [’nick’]
+      meta: []
       requiredMeta:
         - name
         - email
