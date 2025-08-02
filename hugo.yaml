@@ -105,7 +105,7 @@ params:
 
     # Waline client configuration see: https://waline.js.org/en/reference/component.html
     waline:
-      serverURL: https://hugoblog-gamma.vercel.app/
+      serverURL: https://waline-server.vercel.app/
       lang: zh-CN
       pageview:
       emoji:
