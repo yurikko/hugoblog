@@ -2,10 +2,10 @@ toggleMenu:
     other: 切换菜单
 
 darkMode:
-    other: 暗色模式
+    other: 黑夜模式
 
 list:
-    page: "{{ .Count }} 个页面"
+    page: "{{ .Count }} 份记录"
 
     section: 章节
 
@@ -16,10 +16,10 @@ article:
         other: 返回
 
     tableOfContents:
-        other: 目录
+        other: 食谱
 
     relatedContent:
-        other: 相关文章
+        other: 相关报告
 
     lastUpdatedOn:
         other: 最后更新于
