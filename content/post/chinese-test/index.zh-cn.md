@@ -40,5 +40,11 @@ categories:
 
 {{< imgloop "florian-klauer-nptLmg6jqDo-unsplash.jpg,helena-hertz-wWZzXlDpMog-unsplash.jpg" >}}
 
+## Neodb卡片
+
+{{< neodb "https://neodb.social/tv/season/3q5DUeqTlxl9niKtiWVQP3" >}}
+
+
+
 
 相册语法来自 [Typlog](https://typlog.com/)
