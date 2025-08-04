@@ -1,50 +1,186 @@
 ---
-title: Chinese Test
-description: 这是一个副标题
-date: 2020-09-09
-slug: test-chinese
-image: helena-hertz-wWZzXlDpMog-unsplash.jpg
+title: Markdown学习日记
+description: ...真的有人才开始写第一篇md博客啊
+date: 2025-08-04
 categories:
-    - Test
-    - 测试
+    - 工具箱
 ---
 
-## 正文测试
+## 文本内容
 
-而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。
+一般用到的是H2和H3，H2用作段落的标题，H3用作段落内的小标题。
 
-奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。
+特殊字体：
+
+**粗体**：双*号
+
+*斜体*：单*号
 
 ## 引用
 
-> 思念是最暖的忧伤像一双翅膀  
-> 让我停不了飞不远在过往游荡  
-> 不告而别的你 就算为了我着想  
-> 这么沉痛的呵护 我怎么能翱翔  
-> 
-> *[最暖的憂傷 - 田馥甄](https://www.youtube.com/watch?v=3aypp_YlBzI)*
+> 尝试创建一个引用...
+>
+> 引用中可以包含其它元素！但这个模版好像不支持引用套引用...
+>
+> - 分点
+>
+> 以及文本中的**粗体**和*斜体*
+
+## 居中引用
+
+{{< quote-center >}}
+这是引用内容，会自动居中并加上 `<p>` 标签。
+{{< /quote-center >}}
+
+## 列表
+
+### 有序列表
+
+1. 这是第一条内容
+2. 这是第二条内容
+3. ...
+
+1.这是？这是普通的文本内容。
+
+与普通文本的区别就是多了一点缩进。
+
+### 无序列表
+
+- 这是1
+  - 这是1.1
+
+按<kbd>Tab</kbd>即可嵌套。
+
+### 列表中的元素嵌套
+
+要在保留列表连续性的同时在列表中添加另一种元素，请将该元素缩进四个空格或一个制表符，如下例所示：
+
+- 这是1
+
+  这是一个段落
+
+- 这是2
+
+  > 这是一个引用
+
+- 这是3
+
+  1. 这是3.1
+  2. ...
+
+## 代码块
+
+```json
+{
+  "firstName": "Miyazaki"
+  "lastName": "Miya"
+}
+```
+
+好丑的代码块！该修了...
+
+## 分隔线
+
+`***`or`---`
+
+***
+
+## 链接
+
+```markdown
+这是一个链接[My Homepage](hugoblog-gamma.vercel.app)
+```
+
+效果：这是一个链接[My Homepage](hugoblog-gamma.vercel.app)
+
+不加标题：打<>号
+
+eg. <https://hugoblog-gamma.vercel.app>
 
 ## 图片
 
-![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg)  ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) 
+放一只weeptchi在这里...
 
-![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yurikko/pics/img/69dc4ecda6d9587cbc4535490abc8fad.png" style="zoom:25%;" />
 
 ```markdown
-![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg)  ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) 
-
-![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
+![](https://cdn.jsdelivr.net/gh/yurikko/pics/img/69dc4ecda6d9587cbc4535490abc8fad.png)
 ```
 
 ## 图片轮播
 
-{{< imgloop "florian-klauer-nptLmg6jqDo-unsplash.jpg,helena-hertz-wWZzXlDpMog-unsplash.jpg" >}}
+{{< imgloop "https://cdn.jsdelivr.net/gh/yurikko/pics/img/5eaa8c63cp7d1fd2978a9cf5e76277ea.PNG,https://cdn.jsdelivr.net/gh/yurikko/pics/img/860d904fctff00bcf05b5cf67bfca416.PNG,https://cdn.jsdelivr.net/gh/yurikko/pics/img/e436154b0qa1226dd2c0a105bee972f5.PNG" >}}
+
+``````html
+< imgloop "florian-klauer-nptLmg6jqDo-unsplash.jpg,helena-hertz-wWZzXlDpMog-unsplash.jpg" >
+//使用时外侧加双引号
+``````
+
+
 
 ## 自制评分卡片
 
 {{< neodb url="https://bgm.tv/subject/137722" image="https://img2.doubanio.com/view/photo/m/public/p2326879831.webp" title="只有我不存在的城市" rate="7" brief="身为漫画家的主角藤沼悟因为现实生活不顺遂而持续挣扎，拥有着“再上映”的穿越时空能力，是可主动或被动地将时间反复倒带重演，借此阻止“事件”的发生。而他某天下班回到家时，从家乡来访的母亲因在超级市场意外目睹到 18 年前绑架犯的真实身份，认为与过去的雏月佳代的遇害事件有关。尔后母亲在悟的公寓遭到杀害，同时悟还被嫁祸成弑亲凶手；这时“再上映”能力启动，自己却回到 18 年前。来到 18 年前 2 月 15 日的悟决心要阻止整起事件的发生。彼时，在杀人案件中死去的同班同学雏月加代和山田广美尚未被害。悟决心利用自己的能力保护加代和广美的安全，洗清白鸟润身上的冤屈，并且找到真正的幕后黑手。在悟的努力下，个性阴沉孤僻的加代终于向他敞开了心胸，两人结下了深厚的友谊。随着案发日的一天天临近，茫茫的黑夜过去，当光明来临时，悟能否再度看见加代天真的笑脸呢？" tag="Anime" >}}
 
+## 外链
 
+1.网易云音乐卡片
+
+{{< netease 2044553169 >}}
+
+2.哔哩哔哩视频
+
+{{< bilibili BV12a4y1v72A>}}
+
+3.Youtube视频
+
+{{< youtube id="7kGGhprf064" >}}
+
+## 杂项
+
+{{< detail "看这里" >}}
+
+你好！
+
+（（探头））
+
+{{< /detail >}}
+
+- 下标：`<sub></sub>`
+
+  H<sub>2</sub>O
+
+- 上标：`<sup></sup>`
+
+  X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+
+- 键盘：`<kbd></kbd>`
+
+  <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd>
+
+- 强调：`<mark></mark>`
+
+  Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+  
+- 删除线：`~~text~~`
+
+  ~~世界是平坦的~~ 我们现在知道世界是圆的。
+  
+- Todo：`- [ ] task`
+
+  - [ ] 调整重点色
+  - [ ] 调整引用样式
+  - [ ] 调整代码块样式
+  - [ ] Typlog图片格式
+  - [ ] 调整<mark>标记</mark>颜色
+  
+- 文本黑幕：
+
+  <span class="shady">其实Miya今天中午吃了炒菜。<br>这种东西根本没有做成彩蛋的意义吧喂！</span>
+
+- 时间轴
+
+{{< timeline date="2025.07" title="建站" description="终于有了我的小窝" tags="正式"  >}}
 
 
 相册语法来自 [Typlog](https://typlog.com/)
