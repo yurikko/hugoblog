@@ -8,17 +8,20 @@ body,
 .article-content h2 {
     font-family: "Cubic 11", sans-serif;
     font-size: 23px;
+    color: #6593a9 !important;
 }
 .article-content h3 {
     font-family: "Cubic 11", sans-serif;
     font-size: 18px;
+    color: #6593a9 !important;
 }
 
 // 标题字体
 body,
-.article-title {
+.article-title a {
     font-family: "Cubic 11", sans-serif;
     font-size: 25px;
+    color: #6593a9 !important;
 }
 
 // 首页字体
@@ -119,117 +122,7 @@ html[data-scheme='dark'] body {
 @import "aplayer-dark.scss";
 
 // Neodb卡片
-/* db-card -------- start*/
-.db-card {
-    margin: 2.5rem 3rem;
-    background: var(--card-background);
-    border-radius: 7px;
-    box-shadow: 0 6px 10px 0 #00000053;
-}
-
-.db-card-subject {
-    display: flex;
-    align-items: flex-start;
-    line-height: 1.6;
-    padding: 12px;
-    position: relative;
-}
-
-.dark .db-card {
-    background: var(--card-background);
-}
-
-.db-card-content {
-    flex: 1 1 auto;
-}
-
-.db-card-post {
-    width: 100px;
-    margin-right: 15px;
-    display: flex;
-    flex: 0 0 auto;
-}
-
-.db-card-title {
-    margin-bottom: 3px;
-    font-size: 17px;
-    color: #81bfbf !important;
-}
-
-.db-card-title a {
-    text-decoration: none !important
-}
-
-.db-card-abstract,
-.db-card-comment {
-    font-size: 13px;
-    overflow: auto;
-    max-height: 10rem;
-    color: var(--card-text-color-main);
-    ;
-}
-
-.db-card-cate {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #86a4e2;
-    padding: 1px 8px;
-    font-size: small;
-    font-style: italic;
-    border-radius: 0 8px 0 8px;
-    text-transform: capitalize;
-}
-
-.db-card-post img {
-    width: 100px !important;
-    height: 150px !important;
-    border-radius: 4px;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-.rating {
-    margin: 0 0 5px;
-    font-size: 13px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-
-.rating .allstardark {
-    position: relative;
-    color: #4496bc;
-    height: 16px;
-    width: 80px;
-    background-size: auto 100%;
-    margin-right: 8px;
-    background-repeat: repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234496bc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572' /%3E%3C/svg%3E");
-}
-
-.rating .allstarlight {
-    position: absolute;
-    left: 0;
-    color: #4496bc;
-    height: 16px;
-    overflow: hidden;
-    background-size: auto 100%;
-    background-repeat: repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%234496bc' stroke='%234496bc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572' /%3E%3C/svg%3E");
-}
-
-@media (max-width:550px) {
-    .db-card {
-        margin: 0.8rem 1rem;
-    }
-
-    .db-card-comment {
-        display: none;
-    }
-}
-
-/* db-card -------- end */
+@import "Neodb.scss";
 
 //文本黑幕效果
 .shady {
@@ -278,4 +171,18 @@ blockquote.quote-center {
         font-weight: normal;
         margin-top: -1.42em;
     }
+}
+
+mark {
+    background-color: #ead2dd;
+    padding: 0.1em 0.2em;
+    border-radius: 0.2em;
+}
+
+[data-scheme='light'] .article-content blockquote {
+    color: var(--color-text-primary) !important;
+    background-color: #c9dee3 !important;
+    padding: 20px !important;
+    border-radius: 5px !important;
+    border-left: 0.25em solid #a7cad3 !important;
 }

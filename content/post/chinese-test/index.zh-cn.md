@@ -1,6 +1,7 @@
 ---
 title: Markdown学习日记
-description: ...真的有人才开始写第一篇md博客啊
+description: 全篇写满了p人的挣扎
+slug: md-learning
 date: 2025-08-04
 categories:
     - 工具箱
@@ -15,6 +16,8 @@ categories:
 **粗体**：双*号
 
 *斜体*：单*号
+
+日文文本测试：こんにちは！
 
 ## 引用
 
@@ -128,6 +131,8 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 {{< netease 2044553169 >}}
 
+- 另一种实现：
+
 2.哔哩哔哩视频
 
 {{< bilibili BV12a4y1v72A>}}
@@ -168,11 +173,11 @@ eg. <https://hugoblog-gamma.vercel.app>
   
 - Todo：`- [ ] task`
 
-  - [ ] 调整重点色
-  - [ ] 调整引用样式
+  - [x] 调整重点色
+  - [x] 调整引用样式
   - [ ] 调整代码块样式
   - [ ] Typlog图片格式
-  - [ ] 调整<mark>标记</mark>颜色
+  - [x] 调整<mark>标记</mark>颜色
   
 - 文本黑幕：
 
