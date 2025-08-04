@@ -40,9 +40,9 @@ categories:
 
 {{< imgloop "florian-klauer-nptLmg6jqDo-unsplash.jpg,helena-hertz-wWZzXlDpMog-unsplash.jpg" >}}
 
-## Neodb卡片
+## 自制评分卡片
 
-{{< neodb "https://neodb.social/tv/season/3q5DUeqTlxl9niKtiWVQP3" >}}
+{{< neodb url="https://bgm.tv/subject/137722" image="https://img2.doubanio.com/view/photo/m/public/p2326879831.webp" title="只有我不存在的城市" rate="7" brief="身为漫画家的主角藤沼悟因为现实生活不顺遂而持续挣扎，拥有着“再上映”的穿越时空能力，是可主动或被动地将时间反复倒带重演，借此阻止“事件”的发生。而他某天下班回到家时，从家乡来访的母亲因在超级市场意外目睹到 18 年前绑架犯的真实身份，认为与过去的雏月佳代的遇害事件有关。尔后母亲在悟的公寓遭到杀害，同时悟还被嫁祸成弑亲凶手；这时“再上映”能力启动，自己却回到 18 年前。来到 18 年前 2 月 15 日的悟决心要阻止整起事件的发生。彼时，在杀人案件中死去的同班同学雏月加代和山田广美尚未被害。悟决心利用自己的能力保护加代和广美的安全，洗清白鸟润身上的冤屈，并且找到真正的幕后黑手。在悟的努力下，个性阴沉孤僻的加代终于向他敞开了心胸，两人结下了深厚的友谊。随着案发日的一天天临近，茫茫的黑夜过去，当光明来临时，悟能否再度看见加代天真的笑脸呢？" tag="Anime" >}}
 
 
 
