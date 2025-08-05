@@ -1,0 +1,13 @@
+<!-- require APlayer -->
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js server="netease" type="song" id="{{ .Get 0 }}" fixed="false" theme="#9ec9d4" order="list">
+    <div class="aplayer" data-id="14076387351"></div>
+    <div class="aplayer-list"></div>
+    <div class="aplayer-info"></div>
+    <div class="aplayer-controls"></div>
+    <div class="aplayer-volume"></div>
+    <div class="aplayer-progress"></div>
+</meting-js>

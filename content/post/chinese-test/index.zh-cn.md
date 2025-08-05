@@ -80,7 +80,119 @@ categories:
 }
 ```
 
-好丑的代码块！该修了...
+~~好丑的代码块！该修了...~~
+
+长代码块测试
+
+```html
+<!--返回顶部按钮 -->
+<a href="#" id="back-to-top" title="返回顶部"></a>
+
+<!--返回顶部CSS -->
+<style>
+  #back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 55px;
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    background-color: rgba(64, 158, 255, 0.5);
+    box-shadow: var(--shadow-l2);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  #back-to-top:before {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transform: rotate(135deg);
+    height: 10px;
+    width: 10px;
+    border-width: 0 0 2px 2px;
+    border-color: var(--back-to-top-color);
+    border-style: solid;
+  }
+
+  #back-to-top:hover:before {
+    border-color: #2674e0;
+  }
+
+  /* 在屏幕宽度小于 768 像素时，钮位置调整 */
+  @media screen and (max-width: 768px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      font-size: 10px;
+    }
+  }
+
+  /* 在屏幕宽度大于等于 1024 像素时，按钮位置调整 */
+  @media screen and (min-width: 1024px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 40px;
+    }
+  }
+
+  /* 在屏幕宽度大于等于 1280 像素时，按钮位置调整 */
+  @media screen and (min-width: 1280px) {
+    #back-to-top {
+      bottom: 20px;
+      right: 55px;
+    }
+  }
+
+  /* 目录显示时，隐藏按钮 */
+  @media screen and (min-width: 1536px) {
+    #back-to-top {
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!--返回顶部JS -->
+<script>
+  function backToTop() {
+    document.documentElement.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
+  window.onload = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop > 0) {
+      totopBtn.style.display = 'inline'
+    } else {
+      totopBtn.style.display = 'none'
+    }
+  }
+
+  window.onscroll = function () {
+    let scrollTop =
+      this.document.documentElement.scrollTop || this.document.body.scrollTop
+    let totopBtn = this.document.getElementById('back-to-top')
+    if (scrollTop < 200) {
+      totopBtn.style.display = 'none'
+    } else {
+      totopBtn.style.display = 'inline'
+      totopBtn.addEventListener('click', backToTop, false)
+    }
+  }
+</script>
+
+```
+
+
 
 ## 分隔线
 
@@ -102,6 +214,8 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 ## 图片
 
+### 单张图片
+
 放一只weeptchi在这里...
 
 <img src="https://cdn.jsdelivr.net/gh/yurikko/pics/img/69dc4ecda6d9587cbc4535490abc8fad.png" style="zoom:25%;" />
@@ -109,6 +223,12 @@ eg. <https://hugoblog-gamma.vercel.app>
 ```markdown
 ![](https://cdn.jsdelivr.net/gh/yurikko/pics/img/69dc4ecda6d9587cbc4535490abc8fad.png)
 ```
+
+### 画廊
+
+* 仅支持本地图片
+
+![](pic1.png)![](pic2.PNG)
 
 ## 图片轮播
 
@@ -130,6 +250,9 @@ eg. <https://hugoblog-gamma.vercel.app>
 1.网易云音乐卡片
 
 {{< netease 2044553169 >}}
+
+- Aplayer实现：
+  {{< aplayer 2044553169 >}}
 
 2.哔哩哔哩视频
 
@@ -173,8 +296,8 @@ eg. <https://hugoblog-gamma.vercel.app>
 
   - [x] 调整重点色
   - [x] 调整引用样式
-  - [ ] 调整代码块样式
-  - [ ] Typlog图片格式
+  - [x] 调整代码块样式
+  - [x] Typlog图片格式
   - [x] 调整<mark>标记</mark>颜色
   
 - 文本黑幕：

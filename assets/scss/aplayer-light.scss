@@ -503,7 +503,8 @@
     height: 10%;
     // background: linear-gradient(180deg, #fff 0, hsla(0, 0%, 100%, 0));
     background: linear-gradient(180deg, rgba(151, 223, 254, .5) 0, hsla(0, 0%, 100%, 0));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#00ffffff", GradientType=0)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#00ffffff", GradientType=0);
+    background: none !important;
 }
 
 .aplayer .aplayer-lrc:after,
@@ -521,7 +522,8 @@
     height: 33%;
     // background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .8));
     background: linear-gradient(180deg, hsla(198, 100%, 60%, 0), hsla(198, 100%, 60%, .6));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ccffffff", GradientType=0)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ccffffff", GradientType=0);
+    background: none !important;
 }
 
 .aplayer .aplayer-lrc p {

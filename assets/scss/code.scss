@@ -1,71 +1,49 @@
 // 为代码块顶部添加 macos 样式
-.article-content {
-    .highlight:before {
-        content: "";
-        display: block;
-        background: url(/img/code-header.svg);
-        height: 25px;
-        width: 100%;
-        background-size: 52px;
-        background-repeat: no-repeat;
-        margin-top: -10px;
-        margin-bottom: 0;
-    }
-}
-/* 全局设置变量 */
-:root {
-    --code-font-family: 'Fira Code', 'Courier New', Courier, monospace;
-    --code-bg-color: #f8f8f8;
-    --code-border-color: #e0e0e0;
-    --code-text-color: #333;
-    --code-line-number-color: #999;
-    --code-highlight-color: #ffe6e6;
-    --code-radius: 6px;
-    --code-font-size: 14px;
-}
-
-/* 代码块容器（含行号） */
-pre {
+/* 高亮容器 */
+.highlight {
     background: var(--code-bg-color);
     color: var(--code-text-color);
     border: 1px solid var(--code-border-color);
     border-radius: var(--code-radius);
     font-family: var(--code-font-family);
-    font-size: var(--code-font-size);
+    font-size: 15px;
+    font-weight: 500;
     padding: 1em;
     overflow-x: auto;
     line-height: 1.5;
     position: relative;
     counter-reset: linenumber;
+    box-sizing: border-box;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 1rem;
 }
 
-/* 行号容器（如果你用了插件会生成 span.line-numbers） */
-pre code {
+/* 顶部 Mac 风格按钮条 */
+.article-content .highlight:before {
+    content: "";
     display: block;
-    white-space: pre;
+    background: url(/img/code-header.svg);
+    background-size: 52px;
+    background-repeat: no-repeat;
+    height: 25px;
+    margin-top: -10px;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* 如果用的是像 Chroma/Prism.js 的 line-numbers 插件 */
-pre .line-number::before {
-    counter-increment: linenumber;
-    content: counter(linenumber);
-    display: inline-block;
-    width: 2em;
-    margin-right: 1em;
-    color: var(--code-line-number-color);
-    text-align: right;
-    user-select: none;
+/* pre 不再控制滚动 */
+.highlight pre {
+    margin: 0;
+    padding: 0;
+    background: none;
+    overflow: visible;
 }
 
-/* 高亮行样式（例如被点击或搜索高亮） */
-pre .highlighted {
-    background-color: var(--code-highlight-color);
-}
-
-/* 支持 mark 标签高亮关键词 */
-code mark {
-    background: #fffa87;
-    color: #d6336c;
-    padding: 0 0.2em;
-    border-radius: 3px;
+/* 代码内容 */
+.highlight code {
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
