@@ -173,12 +173,21 @@ blockquote.quote-center {
     }
 }
 
-mark {
+// 标记颜色
+[data-scheme='light'] mark {
     background-color: #ead2dd;
     padding: 0.1em 0.2em;
     border-radius: 0.2em;
 }
 
+[data-scheme='dark'] mark {
+    background-color: #836c76;
+    color: white;
+    padding: 0.1em 0.2em;
+    border-radius: 0.2em;
+}
+
+// 引用样式
 [data-scheme='light'] .article-content blockquote {
     color: var(--color-text-primary) !important;
     background-color: #c9dee3 !important;
@@ -186,3 +195,12 @@ mark {
     border-radius: 5px !important;
     border-left: 0.25em solid #a7cad3 !important;
 }
+
+// 键盘键样式
+[data-scheme='light'] .article-content kbd {
+    background-color: #eadae1;
+    border: 1px solid #ababab;
+}
+
+// 代码块样式
+@import "code.scss";

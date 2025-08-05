@@ -131,8 +131,6 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 {{< netease 2044553169 >}}
 
-- 另一种实现：
-
 2.哔哩哔哩视频
 
 {{< bilibili BV12a4y1v72A>}}
