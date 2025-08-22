@@ -11,12 +11,12 @@ $defaultTagColors: #406272, #406272, #406272,#406272,#406272;
         --main-top-padding: 50px;
     }
 
-    --body-background: #cbdfe2;
+    --body-background: #acc3c7;
 
-    --accent-color: #6593a9;
-    --accent-color-darker: #2c3e50;
+    --accent-color: #6282ab;
+    --accent-color-darker: #43638d;
     --accent-color-text: #fff;
-    --body-text-color: #707070;
+    --body-text-color: #565656;
 
     --tag-border-radius: 4px;
 
@@ -51,7 +51,7 @@ $defaultTagColors: #406272, #406272, #406272,#406272,#406272;
 *   Card style
 */
 :root {
-    --card-background: #d6e6e8;
+    --card-background: #c6d5e0;
     --card-background-selected: #eaeaea;
 
     --card-text-color-main: #313f49;
@@ -78,7 +78,7 @@ $defaultTagColors: #406272, #406272, #406272,#406272,#406272;
     }
 
     &[data-scheme="dark"] {
-        --card-background: #384145;
+        --card-background: #404a52;
         --card-background-selected: rgba(255, 255, 255, 0.16);
         --card-text-color-main: rgba(255, 255, 255, 0.9);
         --card-text-color-secondary: rgba(255, 255, 255, 0.7);
@@ -106,7 +106,7 @@ $defaultTagColors: #406272, #406272, #406272,#406272,#406272;
 */
 :root {
     --blockquote-border-size: 4px;
-    --blockquote-background-color: rgb(213, 228, 231);
+    --blockquote-background-color: rgb(213, 221, 231);
 
     --heading-border-size: 4px;
 

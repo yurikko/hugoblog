@@ -8,12 +8,12 @@ body,
 .article-content h2 {
     font-family: "LXGW Bright", sans-serif;
     font-size: 23px;
-    color: #6593a9 !important;
+    color: #6282ab !important;
 }
 .article-content h3 {
     font-family: "LXGW Bright", sans-serif;
     font-size: 18px;
-    color: #6593a9 !important;
+    color: #6282ab !important;
 }
 
 // 标题字体
@@ -21,17 +21,17 @@ body,
 .article-title a {
     font-family: "LXGW Bright", sans-serif;
     font-size: 25px;
-    color: #6593a9 !important;
+    color: #6282ab !important;
 }
 .article-details .article-title {
     font-family: "LXGW Bright", sans-serif;
     font-size: 25px;
-    color: #6593a9 !important;
+    color: #6282ab !important;
 }
 .article .article-details .article-title {
     font-family: "LXGW Bright", sans-serif;
     font-size: 25px;
-    color: #6593a9 !important;
+    color: #6282ab !important;
 }
 
 // 首页字体
@@ -89,7 +89,7 @@ body,
 // 主题背景（亮色+暗色）
 html[data-scheme='light'] body {
     background-color: rgba(0, 0, 0, 0.15);
-    background-image: url("https://cdn.jsdelivr.net/gh/yurikko/pics/img/20250821220433395.png");
+    background-image: url("https://cdn.jsdelivr.net/gh/yurikko/pics/img/blue_sea.JPG");
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
@@ -98,8 +98,8 @@ html[data-scheme='light'] body {
 }
 
 html[data-scheme='dark'] body {
-    background-color: rgba(0, 0, 0, 0.65);
-    background-image: url("https://cdn.jsdelivr.net/gh/yurikko/pics/img/20250821220433395.png");
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url("https://cdn.jsdelivr.net/gh/yurikko/pics/img/blue_sea.JPG");
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
@@ -210,10 +210,10 @@ blockquote.quote-center {
 // 引用样式
 [data-scheme='light'] .article-content blockquote {
     color: var(--color-text-primary) !important;
-    background-color: #c9dee3 !important;
+    background-color: #b2c6d5 !important;
     padding: 20px !important;
     border-radius: 5px !important;
-    border-left: 0.25em solid #a7cad3 !important;
+    border-left: 0.25em solid #99b0c1 !important;
 }
 
 // 键盘键样式
@@ -232,7 +232,7 @@ blockquote.quote-center {
 // 折叠文字样式
 .my-summary {
     font-weight: bold;
-    color: #86b2c8;
+    color: #759aad;
 }
 
 @import "status-cafe.scss";
