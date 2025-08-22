@@ -63,7 +63,7 @@ params:
   article:
     math: false
     toc: true
-    readingTime: false
+    readingTime: true
     license:
       enabled: false
       default: Licensed under CC BY-NC-SA 4.0
@@ -227,9 +227,19 @@ menu:
   social:
     - identifier: twitter
       name: Twitter
-      url: https://twitter.com
+      url: https://x.com/miyako_811
       params:
         icon: brand-twitter
+    - identifier: status-cafe
+      name: Status Cafe
+      url: https://status.cafe/users/miya
+      params:
+        icon: coffee
+    - identifier: bilibili
+      name: Bilibili
+      url: https://space.bilibili.com/7552291
+      params:
+        icon: brand-bilibili
 
 related:
   includeNewer: true

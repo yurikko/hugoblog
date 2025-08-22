@@ -1,94 +1,100 @@
-<div class="talk-bubble tri-right round right-in is-hidden">
-    <div class="talktext">
-
-        <div id="feed-reader"></div>
-        <script>
-            const feedURL = 'https://status.cafe/users/miya.atom';
-
-            function timeAgo(publishedDate) {
-                const now = new Date();
-                const published = new Date(publishedDate);
-                const diff = now - published;
-
-                const seconds = Math.floor(diff / 1000);
-                const minutes = Math.floor(seconds / 60);
-                const hours = Math.floor(minutes / 60);
-                const days = Math.floor(hours / 24);
-
-                if (days > 0) {
-                    return `${days} day${days > 1 ? 's' : ''} ago`;
-                } else if (hours > 0) {
-                    return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-                } else if (minutes > 0) {
-                    return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-                } else {
-                    return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
-                }
-            }
-
-            fetch(feedURL)
-                .then(response => response.text())
-                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-                .then(data => {
-                    const entries = data.querySelectorAll("entry");
-                    let contentText = "";
-                    let relativeTime = "";
-                    let emoji = "";
-
-                    if (entries.length > 0) {
-                        const el = entries[0];
-
-                        let rawTitle = el.querySelector("title").textContent.trim();
-                        let emojiMatch = rawTitle.match(/[\p{Emoji}]/gu);
-                        emoji = emojiMatch ? emojiMatch.join('').replace(/[0-9]+$/, '') : '';
-
-                        contentText = el.querySelector("content").textContent.trim();
-                        let publishedDate = el.querySelector("published").innerHTML;
-                        relativeTime = timeAgo(publishedDate);
-                    }
-
-                    // 构建最终的 HTML 结构，直接显示所有内容，不再逐字打印
-                    let finalHtml = `
-                        <div class="statuscafe-entry">
-                            <p class="statuscafe-content">${contentText}</p>
-                            <p class="statuscafe-username">
-                                <span class="status-meta">
-                                <span class="mumble-time">${relativeTime}</span>
-                                <span class="mumble-title">${emoji} </span>
-                              </span>
-                              </p>
-                        </div>
-                    `;
-                    document.getElementById("feed-reader").innerHTML = finalHtml;
-
-                    // 获取气泡元素
-                    const talkBubbleElement = document.querySelector('.talk-bubble');
-
-                    // 激活气泡的出现动画
-                    if (talkBubbleElement) {
-                        talkBubbleElement.classList.remove('is-hidden');
-                        talkBubbleElement.classList.add('animate-in');
-                    }
-
-                    // 确保 Twemoji 解析
-                    if (typeof twemoji !== 'undefined') {
-                        twemoji.parse(document.getElementById("feed-reader"), {
-                            base: '{{ "/my-emojis/" | relURL }}',
-                            folder: 'svg',
-                            ext: '.svg'
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching or parsing feed:', error);
-                    document.getElementById("feed-reader").innerHTML = '<p>无法加载状态。</p>';
-                    // 即使出错，也要显示气泡
-                    const talkBubbleElement = document.querySelector('.talk-bubble');
-                    if (talkBubbleElement) {
-                        talkBubbleElement.classList.remove('is-hidden');
-                        talkBubbleElement.classList.add('animate-in');
-                    }
-                });
-        </script>
+<section class="status-cafe">
+    <div class="widget-icon">
+        {{ partial "helper/icon" "messages" }}
     </div>
-</div>
+    <h2 class="widget-title section-title">bubble</h2>
+    <div class="talk-bubble tri-right round right-in is-hidden">
+        <div class="talktext">
+
+            <div id="feed-reader"></div>
+            <script>
+                const feedURL = 'https://status.cafe/users/miya.atom';
+
+                function timeAgo(publishedDate) {
+                    const now = new Date();
+                    const published = new Date(publishedDate);
+                    const diff = now - published;
+
+                    const seconds = Math.floor(diff / 1000);
+                    const minutes = Math.floor(seconds / 60);
+                    const hours = Math.floor(minutes / 60);
+                    const days = Math.floor(hours / 24);
+
+                    if (days > 0) {
+                        return `${days} day${days > 1 ? 's' : ''} ago`;
+                    } else if (hours > 0) {
+                        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+                    } else if (minutes > 0) {
+                        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+                    } else {
+                        return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
+                    }
+                }
+
+                fetch(feedURL)
+                    .then(response => response.text())
+                    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                    .then(data => {
+                        const entries = data.querySelectorAll("entry");
+                        let contentText = "";
+                        let relativeTime = "";
+                        let emoji = "";
+
+                        if (entries.length > 0) {
+                            const el = entries[0];
+
+                            let rawTitle = el.querySelector("title").textContent.trim();
+                            let emojiMatch = rawTitle.match(/[\p{Emoji}]/gu);
+                            emoji = emojiMatch ? emojiMatch.join('').replace(/[0-9]+$/, '') : '';
+
+                            contentText = el.querySelector("content").textContent.trim();
+                            let publishedDate = el.querySelector("published").innerHTML;
+                            relativeTime = timeAgo(publishedDate);
+                        }
+
+                        // 构建最终的 HTML 结构，直接显示所有内容，不再逐字打印
+                        let finalHtml = `
+                            <div class="statuscafe-entry">
+                                <p class="statuscafe-content">${contentText}</p>
+                                <p class="statuscafe-username">
+                                    <span class="status-meta">
+                                    <span class="mumble-time">${relativeTime}</span>
+                                    <span class="mumble-title">${emoji} </span>
+                                </span>
+                                </p>
+                            </div>
+                        `;
+                        document.getElementById("feed-reader").innerHTML = finalHtml;
+
+                        // 获取气泡元素
+                        const talkBubbleElement = document.querySelector('.talk-bubble');
+
+                        // 激活气泡的出现动画
+                        if (talkBubbleElement) {
+                            talkBubbleElement.classList.remove('is-hidden');
+                            talkBubbleElement.classList.add('animate-in');
+                        }
+
+                        // 确保 Twemoji 解析
+                        if (typeof twemoji !== 'undefined') {
+                            twemoji.parse(document.getElementById("feed-reader"), {
+                                base: '{{ "/my-emojis/" | relURL }}',
+                                folder: 'svg',
+                                ext: '.svg'
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching or parsing feed:', error);
+                        document.getElementById("feed-reader").innerHTML = '<p>无法加载状态。</p>';
+                        // 即使出错，也要显示气泡
+                        const talkBubbleElement = document.querySelector('.talk-bubble');
+                        if (talkBubbleElement) {
+                            talkBubbleElement.classList.remove('is-hidden');
+                            talkBubbleElement.classList.add('animate-in');
+                        }
+                    });
+            </script>
+        </div>
+    </div>
+</section>

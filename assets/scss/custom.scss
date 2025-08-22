@@ -133,7 +133,8 @@ html[data-scheme='dark'] body {
 .wl-meta .wl-ip,
 .wl-meta .wl-browser,
 .wl-meta .wl-os,
-.wl-meta .wl-reaction-title {
+.wl-meta .wl-reaction-title,
+.wl-meta .wl-addr {
     display: none !important;
 }
 
@@ -235,4 +236,21 @@ blockquote.quote-center {
     color: #759aad;
 }
 
+// 状态气泡样式
 @import "status-cafe.scss";
+.status-cafe {
+    .widget-icon {
+        // 图标样式
+        svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.6;
+            color: var(--body-text-color);
+        }
+    }
+
+    .widget-title {
+        // 标题样式
+        font-size: 16px;
+    }
+}
