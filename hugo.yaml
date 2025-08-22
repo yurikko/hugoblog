@@ -19,7 +19,7 @@ languages:
     weight: 2
     params:
       sidebar:
-        subtitle: weeping.
+        subtitle: Heartbeat.Alive
 
 services:
   # Change it to your Disqus shortname before using
@@ -183,6 +183,7 @@ params:
       - type: categories
         params:
           limit: 10
+      - type: status-cafe
     page:
       - type: toc
 

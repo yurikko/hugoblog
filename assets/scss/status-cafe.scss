@@ -1,0 +1,166 @@
+:root {
+  --talk-bubble-bg: #d7e6e8;
+  --talk-bubble-border-text-color: #616161;
+  --bubble-box-shadow: #e4b3cd;
+}
+
+[data-scheme = "dark"] {
+  --talk-bubble-bg: #425862;
+  --talk-bubble-border-text-color: rgba(255, 255, 255, 0.7);
+  --bubble-box-shadow: #6fa2ba;
+}
+
+
+
+.mumble {
+  line-height: 1.3em;
+  max-height: 233px;           /* 设置最大高度 */
+  overflow-y: auto;            /* 超出最大高度时启用垂直滚动 */
+}
+
+.mumble::-webkit-scrollbar {
+  display: none;               /* 隐藏滚动条（仅限 WebKit 浏览器） */
+}
+
+.statuscafe-entry {
+  border-radius: 10px;
+  padding: 5px;
+  //margin-bottom: 10px;
+  //background-color: var(--neodb-card-color);
+}
+
+.statuscafe-username {
+  margin: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+}
+
+.status-meta {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5em;
+}
+
+.mumble-title {
+  font-size: 1em;
+}
+
+.mumble-time {
+  font-size: 85%;
+  text-transform: uppercase;
+}
+
+.statuscafe-content {
+  margin: 0 1em 0.5em 1em;
+  letter-spacing: 0.8px;
+  font-size: 90%;
+  word-break: break-all;   /* 强制在任意字符处换行，包括单词内部 */
+
+}
+.statuscafe-content a {
+  word-break: break-all;
+}
+
+//对话框
+.talk-bubble {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: auto;
+  background-color: var(--talk-bubble-bg);
+  box-shadow: 6px 8px 0px var(--bubble-box-shadow);
+}
+
+.round {
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+
+.tri-right.border.right-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -40px;
+  top: 30px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: var(--talk-bubble-border-text-color) transparent transparent var(--talk-bubble-border-text-color);
+  filter: drop-shadow(6px 3px 0px var(--bubble-box-shadow));
+}
+
+.tri-right.right-in:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 38px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: var(--talk-bubble-bg) transparent transparent var(--talk-bubble-bg);
+  filter: drop-shadow(6px 3px 0px var(--bubble-box-shadow));
+}
+
+.talktext {
+  padding: 0.6em 0.2em 0em 0.2em;
+  text-align: left;
+  line-height: 1.5em;
+  color: var(--talk-bubble-border-text-color);
+}
+
+/* 气泡出现动画 */
+@keyframes bubble-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.talk-bubble.is-hidden {
+  opacity: 0;
+}
+
+.talk-bubble.animate-in {
+  animation: bubble-slide-in 0.8s ease-out forwards;
+}
+
+@media (max-width: 767px) {
+  .talk-bubble {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .tri-right.border.right-in:before {
+    right: -30px;
+    top: 20px;
+    border: 15px solid;
+    border-color: var(--talk-bubble-border-text-color) transparent transparent var(--talk-bubble-border-text-color);
+    filter: drop-shadow(3px 3px 0px var(--bubble-box-shadow));
+  }
+
+  .tri-right.right-in:after {
+    right: -15px;
+    top: 23px;
+    border: 9px solid;
+    border-color: var(--talk-bubble-bg) transparent transparent var(--talk-bubble-bg);
+    filter: drop-shadow(3px 3px 0px var(--bubble-box-shadow));
+  }
+
+  .talktext {
+    padding: 0.8em 0.6em 0.2em 0.6em;
+  }
+
+  .talk-bubble.animate-in {
+    animation: bubble-slide-in 0.8s ease-out forwards;
+  }
+}
