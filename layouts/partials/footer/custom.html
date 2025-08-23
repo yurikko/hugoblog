@@ -96,3 +96,46 @@
         }
     }
 </script>
+
+<!--归档页折叠JS -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".toggle-btn").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    const year = btn.getAttribute("data-year");
+                    const list = document.getElementById("posts-" + year);
+
+                    if (list.style.display === "none") {
+                        list.style.display = "";
+                        btn.textContent = "折叠";
+                    } else {
+                        list.style.display = "none";
+                        btn.textContent = "展开";
+                    }
+                });
+            });
+        });
+</script>
+<!--归档页折叠样式 -->
+<style>
+    /* 归档页展开/折叠按钮样式 */
+    .toggle-btn {
+        margin-left: 13px;
+        padding: 4px 10px;
+        font-size: 16px;
+        border: 1px solid var(--card-text-color,);
+        border-radius: 6px;
+        background: var(--card-background);
+        color: var(--card-text-color);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    /* hover 效果 */
+    .toggle-btn:hover {
+        background: var(--card-background-hover, #d9e1e5);
+        border-color: var(--primary, #6282ab);
+        color: var(--primary, #6282ab);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+</style>
