@@ -254,3 +254,53 @@ blockquote.quote-center {
         font-size: 16px;
     }
 }
+
+// 手机端字体样式
+@media (max-width: 768px) {
+    // 正文字体
+        body,
+        .article-content {
+            font-size: 16px;
+        }
+    
+        body,
+        .article-content h2 {
+            font-size: 20px;
+        }
+    
+        .article-content h3 {
+            font-size: 16px;
+        }
+    
+        // 标题字体
+        body,
+        .article-title a {
+            font-size: 20px;
+        }
+
+        .article-details .article-subtitle {
+            font-size: 16px;
+        }
+    
+        .article-details .article-title {
+            font-size: 20px;
+        }
+    
+        .article .article-details .article-title {
+            font-size: 20px;
+        }
+    
+        // 首页字体
+        body,
+        .article-page {
+            font-size: 10px;
+        }
+    
+        .site-name {
+            font-size: 20px !important;
+        }
+    
+        .site-description {
+            font-size: 15px !important;
+        }
+}
