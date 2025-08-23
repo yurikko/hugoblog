@@ -1,7 +1,7 @@
 baseurl: https://yurikko.github.io
 languageCode: en-us
 theme: hugo-theme-stack
-title: 生存记录
+title: 春に、君と
 copyright: Miiya
 
 # Theme i18n support
@@ -15,7 +15,7 @@ hasCJKLanguage: true
 languages:
   zh-cn:
     languageName: 中文
-    title: 生存记录
+    title: 春に、君と
     weight: 2
     params:
       sidebar:

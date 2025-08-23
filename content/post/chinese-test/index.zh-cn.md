@@ -1,6 +1,7 @@
 ---
 title: Markdown学习日记
 description: 全篇写满了p人的挣扎
+image: https://cdn.jsdelivr.net/gh/yurikko/pics/img/20250822233831553.png
 slug: md-learning
 date: 2025-08-04
 categories:

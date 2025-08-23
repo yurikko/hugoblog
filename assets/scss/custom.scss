@@ -88,7 +88,7 @@ body,
 
 // 主题背景（亮色+暗色）
 html[data-scheme='light'] body {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.1);
     background-image: url("https://cdn.jsdelivr.net/gh/yurikko/pics/img/blue_sea.JPG");
     background-blend-mode: multiply;
     background-repeat: no-repeat;
