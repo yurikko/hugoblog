@@ -18,8 +18,6 @@ categories:
 
 *斜体*：单*号
 
-日文文本测试：こんにちは！
-
 ## 引用
 
 > 尝试创建一个引用...
@@ -217,8 +215,6 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 ### 单张图片
 
-放一只weeptchi在这里...
-
 <img src="https://cdn.jsdelivr.net/gh/yurikko/pics/img/69dc4ecda6d9587cbc4535490abc8fad.png" style="zoom:25%;" />
 
 ```markdown
@@ -248,7 +244,9 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 ## 外链
 
-1.网易云音乐卡片
+1.网易云音乐卡片（会员歌曲无法播放，已弃用😡）
+
+- 在手机端无法显示，原因未知
 
 {{< netease 2044553169 >}}
 
@@ -303,7 +301,7 @@ eg. <https://hugoblog-gamma.vercel.app>
   
 - 文本黑幕：
 
-  <span class="shady">其实Miya今天中午吃了炒菜。<br>这种东西根本没有做成彩蛋的意义吧喂！</span>
+  <span class="shady">看到这里的你！😡🫵<br>今天也会是美好的一天～☺️👐</span>
 
 - 时间轴
 
