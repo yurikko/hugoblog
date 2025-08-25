@@ -19,7 +19,8 @@ body,
 // 标题字体
 body,
 .article-title a {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: 'Source Han Serif CN for Display';
+    font-weight: 500 !important;
     font-size: 25px;
     color: #6282ab !important;
 }
@@ -41,6 +42,7 @@ body,
     font-size: 18px;
 }
 .site-name {
+    font-family: "Source Han Serif CN for Display", sans-serif;
     font-size: 22px !important;
 }
 .site-description {
@@ -129,13 +131,14 @@ html[data-scheme='dark'] body {
 }
 
 // 隐藏评论信息
-.wl-meta .wl-system,
-.wl-meta .wl-ip,
 .wl-meta .wl-browser,
 .wl-meta .wl-os,
-.wl-meta .wl-reaction-title,
+.wl-reaction .wl-reaction-title,
 .wl-meta .wl-addr {
     display: none !important;
+}
+.wl-reaction .wl-reaction-list {
+    margin: 10px;
 }
 
 // 音乐播放器
@@ -312,7 +315,7 @@ blockquote.quote-center {
         grid-template-columns: 1fr 1fr;
         background: none;
         box-shadow: none;
-
+        
         article {
             background: var(--card-background);
             border: none;
@@ -326,6 +329,7 @@ blockquote.quote-center {
         }
     }
 }
+
 // 归档页面双栏
 @media (min-width: 1024px) {
     .article-list--compact {

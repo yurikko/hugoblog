@@ -115,7 +115,7 @@ params:
         - https://unpkg.com/@waline/emojis@1.0.1/weibo
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili
         - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq
-      meta: []
+      meta: ['nick', 'mail', 'link']
       metaIcon: false
       requiredMeta:
         - name
@@ -124,7 +124,7 @@ params:
       locale:
         reactionTitle: hi
         admin: Admin
-        placeholder: 点这里发送一条评论！
+        placeholder: 点这里发送一条评论！留下邮箱可以接收回复通知哦～
         admin: 站长
         sofa: ...电波接收中...
         submit: 发送
