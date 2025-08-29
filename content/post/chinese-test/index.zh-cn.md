@@ -246,12 +246,8 @@ eg. <https://hugoblog-gamma.vercel.app>
 
 1.网易云音乐卡片（会员歌曲无法播放，已弃用😡）
 
-- 在手机端无法显示，原因未知
-
-{{< netease 2044553169 >}}
-
-- Aplayer实现：
-  {{< aplayer 2044553169 >}}
+Aplayer实现
+{{< aplayer 2044553169 >}}
 
 2.哔哩哔哩视频
 
