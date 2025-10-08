@@ -367,3 +367,11 @@ blockquote.quote-center {
     width: auto;
     height: auto;
 }
+
+// 相关文章样式
+.related-content article.has-image .article-details {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .10) 0%, rgba(0, 0, 0, .55) 100%) !important;
+}
+.related-content article .article-title {
+    color: rgb(177, 203, 222) !important;
+}
