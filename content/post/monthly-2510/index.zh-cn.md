@@ -1,5 +1,5 @@
 ---
-title: '2510 | 人类好像会在秋天变得有点不正常，我说的'
+title: '25-10 | 人类好像会在秋天变得有点不正常，我说的'
 description: 换季一定要注意保暖啊......
 image: 'https://cdn.jsdelivr.net/gh/yurikko/pics/img/45C47C1F-CB40-435C-8738-AD87AFE64220_1_201_a.jpeg'
 slug: monthly-2510
