@@ -1,17 +1,19 @@
+@import url("https://font.emtech.cc/css/LXGWWenKaiTCMono");
+@import url("https://font.emtech.cc/css/LXGWNeoZhiSong");
 // 正文字体
 body,
 .article-content {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 19px;
 }
 body,
 .article-content h2 {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 23px;
     color: #6282ab !important;
 }
 .article-content h3 {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 18px;
     color: #6282ab !important;
 }
@@ -19,18 +21,17 @@ body,
 // 标题字体
 body,
 .article-title a {
-    font-family: 'Source Han Serif CN for Display';
-    font-weight: 500 !important;
+    font-family: 'LXGWNeoZhiSong';
     font-size: 25px;
     color: #6282ab !important;
 }
 .article-details .article-title {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 25px;
     color: #6282ab !important;
 }
 .article .article-details .article-title {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 25px;
     color: #6282ab !important;
 }
@@ -38,11 +39,11 @@ body,
 // 首页字体
 body,
 .article-page {
-    font-family: "LXGW Bright", sans-serif;
+    font-family: "LXGWWenKaiTCMono", sans-serif;
     font-size: 18px;
 }
 .site-name {
-    font-family: "Source Han Serif CN for Display", sans-serif;
+    font-family: "LXGWNeoZhiSong", sans-serif;
     font-size: 22px !important;
 }
 .site-description {
