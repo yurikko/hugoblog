@@ -4,7 +4,6 @@ description: 来年一定会去吃更多好吃的
 image: https://cdn.jsdelivr.net/gh/yurikko/pics/img/G9p7tJPagAEMkMX.jpeg
 slug: yearly-2025
 date: '2025-12-30T11:48:51+08:00'
-draft: true
 categories:
 - 年终总结
 ---
