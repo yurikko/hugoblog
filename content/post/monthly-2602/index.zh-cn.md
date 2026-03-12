@@ -4,7 +4,6 @@ description: 无法到达的那个春天
 image: https://cdn.jsdelivr.net/gh/yurikko/pics/img/shoes.jpeg
 slug: monthly-2602
 date: '2026-02-24T00:02:52+08:00'
-draft: true
 categories:
 - 月度报告
 ---
