@@ -111,8 +111,28 @@ def build_payload() -> dict[str, Any]:
     }
 
 
+class ActivityServer(ThreadingHTTPServer):
+    cors_origins: list[str]
+    api_key: Optional[str]
+
+
 class ActivityHandler(BaseHTTPRequestHandler):
     server_version = "MacActivityHTTP/1.0"
+
+    @property
+    def activity_server(self) -> ActivityServer:
+        return self.server  # type: ignore[return-value]
+
+    def _allowed_origin(self) -> Optional[str]:
+        configured_origins = self.activity_server.cors_origins
+        if "*" in configured_origins:
+            return "*"
+
+        request_origin = self.headers.get("Origin", "")
+        if request_origin and request_origin in configured_origins:
+            return request_origin
+
+        return None
 
     def _send_json(self, status_code: int, payload: dict[str, Any]) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
@@ -120,18 +140,50 @@ class ActivityHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
-        self.send_header("Access-Control-Allow-Origin", "*")
+        allowed_origin = self._allowed_origin()
+        if allowed_origin:
+            self.send_header("Access-Control-Allow-Origin", allowed_origin)
+            self.send_header("Vary", "Origin")
         self.end_headers()
         self.wfile.write(body)
 
+    def _is_authorized(self) -> bool:
+        expected_api_key = self.activity_server.api_key
+        if not expected_api_key:
+            return True
+
+        if self.headers.get("Authorization", "") == f"Bearer {expected_api_key}":
+            return True
+
+        if self.headers.get("X-API-Key", "") == expected_api_key:
+            return True
+
+        return False
+
     def do_OPTIONS(self) -> None:  # noqa: N802
+        allowed_origin = self._allowed_origin()
+        if self.headers.get("Origin") and not allowed_origin:
+            self.send_response(403)
+            self.end_headers()
+            return
+
         self.send_response(204)
-        self.send_header("Access-Control-Allow-Origin", "*")
+        if allowed_origin:
+            self.send_header("Access-Control-Allow-Origin", allowed_origin)
+            self.send_header("Vary", "Origin")
         self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-API-Key")
         self.end_headers()
 
     def do_GET(self) -> None:  # noqa: N802
+        if self.headers.get("Origin") and not self._allowed_origin():
+            self._send_json(403, {"error": "Origin not allowed"})
+            return
+
+        if not self._is_authorized():
+            self._send_json(401, {"error": "Unauthorized"})
+            return
+
         if self.path in ("/api/activity", "/api/activity/"):
             self._send_json(200, build_payload())
             return
@@ -150,12 +202,25 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Serve local macOS activity as JSON.")
     parser.add_argument("--host", default="127.0.0.1", help="Host to bind to.")
     parser.add_argument("--port", type=int, default=48123, help="Port to bind to.")
+    parser.add_argument(
+        "--cors-origin",
+        action="append",
+        dest="cors_origins",
+        help="Allowed browser Origin for CORS, such as https://yurikko.github.io. Repeat this flag to allow multiple origins.",
+    )
+    parser.add_argument(
+        "--api-key",
+        default=None,
+        help="Optional API key. Browser may send it in Authorization: Bearer <key> or X-API-Key.",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    server = ThreadingHTTPServer((args.host, args.port), ActivityHandler)
+    server = ActivityServer((args.host, args.port), ActivityHandler)
+    server.cors_origins = args.cors_origins or ["*"]
+    server.api_key = args.api_key
     print(f"mac activity server listening on http://{args.host}:{args.port}/api/activity")
     try:
         server.serve_forever()

@@ -49,6 +49,7 @@
         };
 
         const configuredAppMessages = {{ .Context.Site.Params.macActivity.appMessages | jsonify | safeJS }};
+        const requestHeaders = {{ .Context.Site.Params.macActivity.requestHeaders | default dict | jsonify | safeJS }};
 
         const normalizeAppName = (value) => {
             return String(value || "")
@@ -107,7 +108,10 @@
                 }
 
                 try {
-                    const response = await fetch(endpoint, { cache: "no-store" });
+                    const response = await fetch(endpoint, {
+                        cache: "no-store",
+                        headers: requestHeaders,
+                    });
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
                     const payload = await response.json();
 

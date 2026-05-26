@@ -217,9 +217,11 @@ params:
 
   macActivity:
     enabled: true
-    endpoint: http://127.0.0.1:48123/api/activity
+    endpoint: https://activity.miyamya.site/api/activity
     refreshInterval: 5
     defaultMessage: ᜊ(˶ᐢ. .ᐢ˵)ᜊ
+    requestHeaders:
+      Authorization: Bearer sbGRd5Aau24yb4wjU8vqmU3kIHwOvfmL1uKf
     appMessages:
       Codex: ——那么这个人应该在摸鱼
       Google Chrome: Internet Yamero!

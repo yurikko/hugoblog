@@ -20,7 +20,7 @@ $ hugo new site project-name
 
 ## Local Mac Activity Widget
 
-This site now includes a local-only Mac activity widget in the homepage sidebar.
+This site now includes a Mac activity widget in the homepage sidebar.
 
 Start the activity API on your Mac:
 
@@ -46,6 +46,45 @@ Open the local page over `http://localhost:1313` and the widget will show:
 - The script only reads the frontmost app name. It does not read window content or document content.
 - If you open the deployed HTTPS site directly, browsers will usually block requests to `http://127.0.0.1`, so the widget will show a disconnected hint instead of live data.
 - You can change the endpoint, refresh interval, default text, and per-app messages in `/Users/miya/Blogs/hugo.yaml` under `params.macActivity`.
+
+## Public HTTPS Endpoint
+
+If you want the deployed HTTPS blog to read your Mac activity, expose the API through an HTTPS URL and point the widget to that URL.
+
+Start the local API with restricted browser origins and an optional API key:
+
+```shell
+python3 scripts/mac_activity_server.py \
+  --host 127.0.0.1 \
+  --port 48123 \
+  --cors-origin https://yurikko.github.io \
+  --cors-origin http://localhost:1313 \
+  --api-key REPLACE_WITH_A_LONG_RANDOM_TOKEN
+```
+
+Then expose `http://127.0.0.1:48123` through an HTTPS tunnel or reverse proxy. One easy option is Cloudflare Tunnel:
+
+```shell
+cloudflared tunnel --url http://127.0.0.1:48123
+```
+
+After you get a public HTTPS URL such as `https://example.trycloudflare.com`, update `/Users/miya/Blogs/hugo.yaml`:
+
+```yaml
+params:
+  macActivity:
+    endpoint: https://example.trycloudflare.com/api/activity
+    requestHeaders:
+      Authorization: Bearer REPLACE_WITH_A_LONG_RANDOM_TOKEN
+```
+
+Then rebuild and redeploy the Hugo site.
+
+### Security Notes
+
+- `requestHeaders` are shipped to the browser, so a public static site cannot keep this token fully secret.
+- This is enough to stop accidental scraping, but not enough for strong security once the page is public.
+- If you want stronger protection, place the HTTPS endpoint behind Cloudflare Access, Tailscale Funnel, or your own authenticated reverse proxy instead of relying only on an embedded token.
 
 ## Menu Bar App
 
