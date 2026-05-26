@@ -259,6 +259,109 @@ blockquote.quote-center {
     }
 }
 
+.mac-activity-widget {
+    .widget-icon {
+        svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.6;
+            color: var(--body-text-color);
+        }
+    }
+
+    .mac-activity-card {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(150, 189, 215, 0.22), rgba(255, 255, 255, 0.48));
+        border: 1px solid rgba(122, 155, 181, 0.18);
+        box-shadow: var(--shadow-l1);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .mac-activity-state {
+        font-size: 1.2rem;
+        color: #5e7f96;
+    }
+
+    .mac-activity-primary {
+        font-family: "LXGWNeoZhiSong", sans-serif;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        color: #487192;
+    }
+
+    .mac-activity-secondary {
+        font-size: 1.35rem;
+        line-height: 1.5;
+        color: var(--card-text-color-secondary);
+        word-break: break-word;
+    }
+
+    .mac-activity-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0;
+
+        div {
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        dt {
+            margin-bottom: 4px;
+            font-size: 1.15rem;
+            color: #6f8ea2;
+        }
+
+        dd {
+            margin: 0;
+            font-size: 1.35rem;
+            color: var(--card-text-color-main);
+        }
+    }
+
+    .mac-activity-note {
+        margin: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        color: var(--card-text-color-secondary);
+    }
+
+    &.is-disconnected {
+        .mac-activity-card {
+            background: linear-gradient(180deg, rgba(189, 202, 211, 0.24), rgba(255, 255, 255, 0.62));
+        }
+    }
+}
+
+html[data-scheme='dark'] .mac-activity-widget {
+    .mac-activity-card {
+        background: linear-gradient(180deg, rgba(66, 88, 104, 0.6), rgba(27, 36, 43, 0.9));
+        border-color: rgba(157, 191, 216, 0.15);
+    }
+
+    .mac-activity-state,
+    .mac-activity-meta dt,
+    .mac-activity-primary {
+        color: #b5d2e6;
+    }
+
+    .mac-activity-meta div {
+        background: rgba(255, 255, 255, 0.06);
+    }
+}
+
+@media (max-width: 390px) {
+    .mac-activity-widget .mac-activity-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
 // 手机端字体样式
 @media (max-width: 768px) {
     // 正文字体

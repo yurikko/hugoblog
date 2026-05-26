@@ -1,0 +1,132 @@
+{{- if .Context.Site.Params.macActivity.enabled -}}
+<section class="mac-activity-widget"
+    data-endpoint='{{ .Context.Site.Params.macActivity.endpoint | default "http://127.0.0.1:48123/api/activity" }}'
+    data-refresh='{{ .Context.Site.Params.macActivity.refreshInterval | default 5 }}'
+    data-default-message='{{ .Context.Site.Params.macActivity.defaultMessage | default "正在和电脑一起发呆。" }}'>
+    <div class="widget-icon">
+        {{ partial "helper/icon" "desktop" }}
+    </div>
+    <h2 class="widget-title section-title">状态</h2>
+
+    <div class="mac-activity-card">
+        <div class="mac-activity-state" data-role="state">正在连接本地活动服务…</div>
+        <div class="mac-activity-primary" data-role="app">--</div>
+        <div class="mac-activity-secondary" data-role="message">等待数据</div>
+
+        <dl class="mac-activity-meta">
+            <div>
+                <dt>内存</dt>
+                <dd data-role="memory">--</dd>
+            </div>
+            <div>
+                <dt>电量</dt>
+                <dd data-role="battery">--</dd>
+            </div>
+        </dl>
+
+        <p class="mac-activity-note" data-role="note">
+            运行 <code>python3 scripts/mac_activity_server.py</code> 后即可实时显示。
+        </p>
+    </div>
+</section>
+
+<script>
+    (() => {
+        if (window.__macActivityWidgetBooted) {
+            return;
+        }
+        window.__macActivityWidgetBooted = true;
+
+        const formatBattery = (battery) => {
+            if (!battery || battery.percentage == null) return "不可用";
+            const suffix = battery.charging ? " 充电中" : "";
+            return `${battery.percentage}%${suffix}`;
+        };
+
+        const formatMemory = (memory) => {
+            if (!memory || memory.usedGB == null || memory.totalGB == null) return "不可用";
+            return `${memory.usedGB} / ${memory.totalGB} GB`;
+        };
+
+        const configuredAppMessages = {{ .Context.Site.Params.macActivity.appMessages | jsonify | safeJS }};
+
+        const normalizeAppName = (value) => {
+            return String(value || "")
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, " ");
+        };
+
+        const getAppMessage = (appName, appMessages, defaultMessage) => {
+            const normalizedAppName = normalizeAppName(appName);
+            if (!normalizedAppName) return defaultMessage;
+
+            const exactMatch = Object.entries(appMessages).find(([key, value]) => {
+                return normalizeAppName(key) === normalizedAppName && typeof value === "string" && value.trim();
+            });
+            if (exactMatch) {
+                return exactMatch[1];
+            }
+
+            const fuzzyMatch = Object.entries(appMessages).find(([key, value]) => {
+                const normalizedKey = normalizeAppName(key);
+                return normalizedKey && normalizedAppName.includes(normalizedKey) && typeof value === "string" && value.trim();
+            });
+            if (fuzzyMatch) {
+                return fuzzyMatch[1];
+            }
+
+            return defaultMessage;
+        };
+
+        const widgets = document.querySelectorAll(".mac-activity-widget");
+        widgets.forEach((root) => {
+            const endpoint = root.dataset.endpoint;
+            const refreshSeconds = Number(root.dataset.refresh || 5);
+            const defaultMessage = root.dataset.defaultMessage || "正在和电脑一起发呆。";
+            const appMessages = configuredAppMessages || {};
+            const stateEl = root.querySelector('[data-role="state"]');
+            const appEl = root.querySelector('[data-role="app"]');
+            const messageEl = root.querySelector('[data-role="message"]');
+            const memoryEl = root.querySelector('[data-role="memory"]');
+            const batteryEl = root.querySelector('[data-role="battery"]');
+            const noteEl = root.querySelector('[data-role="note"]');
+
+            const setDisconnectedState = (message) => {
+                root.classList.add("is-disconnected");
+                stateEl.textContent = message;
+                appEl.textContent = "电脑离线中";
+                messageEl.textContent = "";
+            };
+
+            const render = async () => {
+                if (window.location.protocol === "https:" && endpoint.startsWith("http://127.0.0.1")) {
+                    setDisconnectedState("HTTPS 页面无法直接读取本机 HTTP 接口");
+                    noteEl.textContent = "请用本地 http 页面访问，或把接口换成同源 HTTPS 地址。";
+                    return;
+                }
+
+                try {
+                    const response = await fetch(endpoint, { cache: "no-store" });
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const payload = await response.json();
+
+                    root.classList.remove("is-disconnected");
+                    stateEl.textContent = "实时活动监控中";
+                    appEl.textContent = payload.frontmostApp || "未获取到前台应用";
+                    messageEl.textContent = getAppMessage(payload.frontmostApp, appMessages, defaultMessage);
+                    memoryEl.textContent = formatMemory(payload.memory);
+                    batteryEl.textContent = formatBattery(payload.battery);
+                    noteEl.textContent = `来源：${payload.host || "本机"} · ${payload.battery?.powerSource || "电源状态未知"}`;
+                } catch (error) {
+                    setDisconnectedState("Zzz...");
+                    noteEl.textContent = "";
+                }
+            };
+
+            render();
+            window.setInterval(render, Math.max(refreshSeconds, 2) * 1000);
+        });
+    })();
+</script>
+{{- end -}}
