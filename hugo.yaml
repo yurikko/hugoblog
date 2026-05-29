@@ -28,6 +28,22 @@ services:
   # GA Tracking ID
   googleAnalytics:
     id:
+  rss:
+    limit: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
 
 pagination:
   pagerSize: 3
@@ -244,6 +260,11 @@ menu:
   main: []
 
   social:
+    - identifier: rss
+      name: RSS
+      url: /index.xml
+      params:
+        icon: rss
     - identifier: twitter
       name: Twitter
       url: https://x.com/miyako_811

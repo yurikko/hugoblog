@@ -1,0 +1,25 @@
+{{- $entries := .Site.Data.changelog -}}
+{{- with $entries -}}
+    {{- $latest := index . 0 -}}
+    <section class="site-changelog" data-changelog-root>
+        <button class="site-changelog__peek" type="button" data-changelog-open aria-haspopup="dialog" aria-controls="site-changelog-dialog">
+            <div class="site-changelog__eyebrow">
+                <span class="site-changelog__eyebrow-label">
+                    <span class="site-changelog__dot"></span>
+                    <span>Changelog</span>
+                </span>
+                <time datetime="{{ $latest.date }}">{{ dateFormat "2006.01.02" (time.AsTime $latest.date) }}</time>
+            </div>
+
+            <h2 class="site-changelog__title">{{ $latest.title }}</h2>
+
+            <ul class="site-changelog__list">
+                {{- range first 2 $latest.items -}}
+                    <li>{{ . }}</li>
+                {{- end -}}
+            </ul>
+
+            <span class="site-changelog__cta">查看历史更新</span>
+        </button>
+    </section>
+{{- end -}}

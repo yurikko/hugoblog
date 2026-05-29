@@ -109,3 +109,42 @@ The menu bar app will:
 - update the current app, memory, and battery in the background
 
 If you want it to start automatically after login, add the generated app to System Settings -> General -> Login Items.
+
+## launchd Auto Start
+
+To keep both the activity API and Cloudflare Tunnel running after login, this repo now includes launchd templates:
+
+- `/Users/miya/Blogs/launchd/com.miya.mac-activity-server.plist`
+- `/Users/miya/Blogs/launchd/com.miya.cloudflared-mac-activity.plist`
+
+First create your local env file:
+
+```shell
+cp /Users/miya/Blogs/launchd/mac-activity.env.example /Users/miya/Blogs/launchd/mac-activity.env
+```
+
+Then edit `/Users/miya/Blogs/launchd/mac-activity.env` and fill in:
+
+- `MAC_ACTIVITY_API_KEY`
+- `MAC_ACTIVITY_CORS_ORIGINS`
+- `CLOUDFLARED_TUNNEL_NAME`
+
+Install the agents:
+
+```shell
+mkdir -p ~/Library/LaunchAgents
+cp /Users/miya/Blogs/launchd/com.miya.mac-activity-server.plist ~/Library/LaunchAgents/
+cp /Users/miya/Blogs/launchd/com.miya.cloudflared-mac-activity.plist ~/Library/LaunchAgents/
+launchctl unload ~/Library/LaunchAgents/com.miya.mac-activity-server.plist 2>/dev/null || true
+launchctl unload ~/Library/LaunchAgents/com.miya.cloudflared-mac-activity.plist 2>/dev/null || true
+launchctl load ~/Library/LaunchAgents/com.miya.mac-activity-server.plist
+launchctl load ~/Library/LaunchAgents/com.miya.cloudflared-mac-activity.plist
+```
+
+Useful commands:
+
+```shell
+launchctl list | rg 'com.miya.(mac-activity-server|cloudflared-mac-activity)'
+tail -f ~/Library/Logs/mac-activity-server.log
+tail -f ~/Library/Logs/cloudflared-mac-activity.log
+```

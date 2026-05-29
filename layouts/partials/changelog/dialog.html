@@ -1,0 +1,70 @@
+{{- $entries := .Site.Data.changelog -}}
+{{- with $entries -}}
+    <div class="site-changelog-dialog" id="site-changelog-dialog" hidden data-changelog-modal>
+        <button class="site-changelog-dialog__backdrop" type="button" data-changelog-close aria-label="关闭更新日志"></button>
+
+        <div class="site-changelog-dialog__card" role="dialog" aria-modal="true" aria-labelledby="site-changelog-dialog-title">
+            <div class="site-changelog-dialog__header">
+                <div>
+                    <p class="site-changelog-dialog__eyebrow">Website changelog</p>
+                    <h2 id="site-changelog-dialog-title">Changelog</h2>
+                </div>
+
+                <button class="site-changelog-dialog__close" type="button" data-changelog-close>
+                    关闭
+                </button>
+            </div>
+
+            <div class="site-changelog-dialog__body">
+                {{- range . -}}
+                    <article class="site-changelog-entry">
+                        <div class="site-changelog-entry__meta">
+                            <time datetime="{{ .date }}">{{ dateFormat "2006.01.02" (time.AsTime .date) }}</time>
+                            <span>{{ .title }}</span>
+                        </div>
+
+                        <ul>
+                            {{- range .items -}}
+                                <li>{{ . }}</li>
+                            {{- end -}}
+                        </ul>
+                    </article>
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            if (window.__siteChangelogBooted) {
+                return;
+            }
+            window.__siteChangelogBooted = true;
+
+            const openButtons = document.querySelectorAll("[data-changelog-open]");
+            const modal = document.querySelector("[data-changelog-modal]");
+            const closeButtons = document.querySelectorAll("[data-changelog-close]");
+
+            if (!openButtons.length || !modal) return;
+
+            const setOpen = (open) => {
+                modal.hidden = !open;
+                document.body.classList.toggle("site-changelog-open", open);
+            };
+
+            openButtons.forEach((button) => {
+                button.addEventListener("click", () => setOpen(true));
+            });
+
+            closeButtons.forEach((button) => {
+                button.addEventListener("click", () => setOpen(false));
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape" && !modal.hidden) {
+                    setOpen(false);
+                }
+            });
+        })();
+    </script>
+{{- end -}}

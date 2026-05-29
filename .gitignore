@@ -1,3 +1,4 @@
 .env
 .env.build
 /public/
+/launchd/mac-activity.env
